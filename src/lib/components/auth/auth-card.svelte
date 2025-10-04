@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="w-full max-w-md bg-card border border-border rounded-lg shadow-lg p-8 md:p-10 animate-in fade-in-50 duration-500"
+	class="mt-12 w-full max-w-md bg-card border border-border rounded-lg shadow-lg p-8 md:p-10 animate-in fade-in-50 duration-500"
 >
 	{@render children()}
 </div>

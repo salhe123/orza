@@ -46,20 +46,20 @@
 </svelte:head>
 
 <div class="min-h-screen flex items-center justify-center bg-background p-4 relative">
-	<div class="absolute top-6 left-6">
+	<div class="absolute top-4 left-4">
 		<button onclick={goHome} class="flex items-center gap-2" aria-label="Go Home">
-			<img src="/assets/login.png" alt="Orza Logo" class="w-10 h-10 object-contain" />
+			<img src="/assets/logo.png" alt="Orza Logo" class="w-[117px] h-[41px] object-contain" />
 		</button>
 	</div>
 
-	<button onclick={goHome} class="absolute top-6 right-6 p-2 hover:bg-muted rounded-lg transition-colors" aria-label="Go Home">
+	<button onclick={goHome} class="absolute top-4 right-4 p-2 hover:bg-muted rounded-lg transition-colors" aria-label="Go Home">
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-foreground">
 			<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
 			<polyline points="9 22 9 12 15 12 15 22"/>
 		</svg>
 	</button>
 
-	<div class="w-full max-w-6xl flex items-center justify-center gap-8">
+	<div class="w-full max-w-6xl flex items-center justify-between gap-12">
 		<AuthCard>
 			<div class="flex flex-col items-center gap-6">
 				<h1 class="text-2xl font-semibold text-foreground">Create a new account</h1>
@@ -139,8 +139,8 @@
 			</div>
 		</AuthCard>
 
-		<div class="hidden lg:block w-full max-w-sm">
-			<div class="bg-card rounded-lg p-8 shadow-sm border border-border">
+		<div class="hidden lg:block w-full max-w-sm text-right">
+			<div>
 				<h2 class="text-3xl font-bold text-foreground">30,000+ clients</h2>
 				<p class="text-xl font-semibold text-foreground mt-1">are getting more replies!</p>
 				<p class="text-sm text-muted-foreground mt-6 leading-relaxed">

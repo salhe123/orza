@@ -32,28 +32,26 @@
 		console.log('[v0] Apple login clicked');
 		// TODO: Implement Apple OAuth
 	}
-
-	function goHome() {
-		goto('/');
-	}
 </script>
 
 <svelte:head>
 	<title>Login - Orza</title>
 </svelte:head>
 
-<div class="relative flex min-h-screen flex-col items-center justify-start bg-background p-4 pt-16">
-	<!-- Logo at Top Above AuthCard -->
-	<div class="absolute top-4 left-1/2 -translate-x-1/2 transform">
-		<button onclick={goHome} class="flex items-center" aria-label="Go Home">
-			<img src="/assets/login.png" alt="Orza Logo" class="h-20 w- object-contain" />
-		</button>
+<div class="min-h-screen flex items-center justify-center bg-background p-4 relative">
+	<!-- Logo at Upper Center with Figma Dimensions -->
+	<div class="absolute top-8 left-1/2 transform -translate-x-1/2">
+		<div class="w-[149px] h-[123px] flex items-center justify-center">
+			<img src="/assets/login.png" alt="Orza Logo" class="w-full h-full object-contain" />
+		</div>
 	</div>
 
 	<AuthCard>
 		<div class="flex flex-col items-center gap-6">
+			<!-- Title -->
 			<h1 class="text-2xl font-semibold text-foreground">Login</h1>
 
+			<!-- Login Form -->
 			<form onsubmit={handleLogin} class="w-full space-y-4">
 				<AuthInput
 					type="email"
@@ -71,51 +69,57 @@
 					autocomplete="current-password"
 				/>
 
-				<div class="flex justify-end">
+				<!-- Made button and forgot password link parallel in same row -->
+				<div class="flex items-center justify-between gap-4">
+					<AuthButton>
+						Log In
+						<svg
+							class="w-4 h-4 ml-2"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M13 7l5 5m0 0l-5 5m5-5H6"
+							/>
+						</svg>
+					</AuthButton>
+
 					<a
 						href="/forgot-password"
-						class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+						class="text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
 					>
 						Forgot password?
 					</a>
 				</div>
-
-				<AuthButton type="submit" loading={isLoading}>
-					Log In
-					<svg
-						class="ml-2 h-4 w-4"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M13 7l5 5m0 0l-5 5m5-5H6"
-						/>
-					</svg>
-				</AuthButton>
 			</form>
 
-			<div class="flex w-full items-center gap-4">
-				<div class="h-px flex-1 bg-border"></div>
+			<!-- Divider -->
+			<div class="w-full flex items-center gap-4">
+				<div class="flex-1 h-px bg-border"></div>
 				<span class="text-sm text-muted-foreground">OR</span>
-				<div class="h-px flex-1 bg-border"></div>
+				<div class="flex-1 h-px bg-border"></div>
 			</div>
 
+			<!-- Social Login Buttons -->
 			<div class="w-full space-y-3">
 				<SocialButton provider="google" onclick={handleGoogleLogin}>
 					Log in with Google
 				</SocialButton>
 
-				<SocialButton provider="apple" onclick={handleAppleLogin}>Log in with Apple</SocialButton>
+				<SocialButton provider="apple" onclick={handleAppleLogin}>
+					Log in with Apple
+				</SocialButton>
 			</div>
 
+			<!-- Sign Up Link -->
 			<p class="text-sm text-muted-foreground">
 				Don't have an account?
-				<a href="/signup" class="font-medium text-foreground hover:underline">Sign Up</a>
+				<a href="/signup" class="text-foreground font-medium hover:underline">Sign Up</a>
 			</p>
 		</div>
 	</AuthCard>
